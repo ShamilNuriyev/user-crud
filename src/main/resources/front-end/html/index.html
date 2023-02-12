@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>CRUD Application</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 style="text-align: center">User Management Application</h2>
+    <button type="button" class="btn btn-success" id="createUserBtn" onclick="showAddUserModalForAddingUser()">Add User</button>
+    <!-- Add/Edit User Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="userModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Add User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"  onclick="closeUserModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="userForm">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeUserModal()">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveUserBtn"  onclick="saveOrUpdate()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table mt-5">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="usersList">
+        </tbody>
+    </table>
+</div>
+<script src="../js/script.js"></script>
+
+</body>
+</html>
