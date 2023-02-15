@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1/users")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:63342")
 public class UserController {
     private final UserService userService;
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<UserDto>> getAllUsers(){
         List<UserDto> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long id){
         UserDto UserDto = userService.getUserById(id);
         return new ResponseEntity<>(UserDto, HttpStatus.OK);
     }
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<UserDto> addUser(@Valid @RequestBody UserDto user) {
         UserDto UserDto = userService.addUser(user);
         return new ResponseEntity<>(UserDto, HttpStatus.CREATED);
     }
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto user, @PathVariable("id") Long id) {
         UserDto UserDto = userService.updateUser(user, id);
         return new ResponseEntity<>(UserDto, HttpStatus.OK);
     }
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
         userService.deleteUserById(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
