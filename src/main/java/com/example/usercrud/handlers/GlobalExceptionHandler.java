@@ -14,7 +14,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(UserNotFound.class)
-    protected ResponseEntity<String> handleStudentNotFoundException(UserNotFound ex) {
+    protected ResponseEntity<String> handleUserNotFoundException(UserNotFound ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
     @ExceptionHandler(Exception.class)

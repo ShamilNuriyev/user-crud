@@ -2,7 +2,6 @@ package com.example.usercrud.service;
 
 import com.example.usercrud.exception.UserNotFound;
 import com.example.usercrud.mapper.UserMapStructMapper;
-import com.example.usercrud.mapper.UserMapStructMapperImpl;
 import com.example.usercrud.model.UserDto;
 import com.example.usercrud.model.UserEntity;
 import com.example.usercrud.repository.UserRepository;
@@ -19,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     public UserServiceImpl(
             UserRepository userRepository,
-            UserMapStructMapperImpl userMapStructMapper) {
+            UserMapStructMapper userMapStructMapper) {
         this.userRepository = userRepository;
         this.userMapStructMapper = userMapStructMapper;
     }
